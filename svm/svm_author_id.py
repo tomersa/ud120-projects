@@ -19,12 +19,12 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
-
+from sklearn.svm import SVC
+svm = SVC(kernel='rbf', C=1)
+svm.fit(features_train, labels_train)
 
 
 #########################################################
 ### your code goes here ###
 
 #########################################################
-
-
