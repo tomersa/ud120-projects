@@ -33,5 +33,7 @@ labels_train = labels_train[:len(labels_train)/100]
 svm.fit(features_train, labels_train)
 results_test = svm.predict(features_test)
 
+for i in (10, 26, 50):
+    print "result #%d = %d" % (i, results_test[i])
 
 #########################################################
