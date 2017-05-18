@@ -30,15 +30,9 @@ svm = SVC(kernel='rbf', C=c_param)
 features_train = features_train[:len(features_train)/100]
 labels_train = labels_train[:len(labels_train)/100]
 
-# t0 = time()
 svm.fit(features_train, labels_train)
-# print "training time fit():", round(time()-t0, 3), "s"
-
-# t0 = time()
 results_test = svm.predict(features_test)
-# print "training time predict():", round(time()-t0, 3), "s"
 
 accuracy = accuracy_score(labels_test, results_test)
-# print "for %d labels in test, svm recieved an accuracy of: %f" % (len(labels_test), accuracy)
 print "for C=%d, svm recieved an accuracy of: %f" % (c_param, accuracy)
 #########################################################
