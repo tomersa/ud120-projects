@@ -26,6 +26,10 @@ from sklearn.metrics import accuracy_score
 c_param = 10000
 svm = SVC(kernel='rbf', C=c_param)
 
+#Cutting training dataset
+features_train = features_train[:len(features_train)/100]
+labels_train = labels_train[:len(labels_train)/100]
+
 # t0 = time()
 svm.fit(features_train, labels_train)
 # print "training time fit():", round(time()-t0, 3), "s"
