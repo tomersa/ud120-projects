@@ -33,6 +33,5 @@ labels_train = labels_train[:len(labels_train)/100]
 svm.fit(features_train, labels_train)
 results_test = svm.predict(features_test)
 
-accuracy = accuracy_score(labels_test, results_test)
-print "for C=%d, svm recieved an accuracy of: %f" % (c_param, accuracy)
+
 #########################################################
