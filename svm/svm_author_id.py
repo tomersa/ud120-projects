@@ -23,17 +23,19 @@ from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 
 #########################################################
+import numpy as np
+
 c_param = 10000
 svm = SVC(kernel='rbf', C=c_param)
 
 #Cutting training dataset
-features_train = features_train[:len(features_train)/100]
-labels_train = labels_train[:len(labels_train)/100]
-
 svm.fit(features_train, labels_train)
 results_test = svm.predict(features_test)
 
-for i in (10, 26, 50):
-    print "result #%d = %d" % (i, results_test[i])
+chris_results = results_test.tolist().count(1)
+sara_results = len(results_test) - chris_results
+
+print results_test
+print "Chris results: %d Sara results: %d" % (chris_results, sara_results)
 
 #########################################################
