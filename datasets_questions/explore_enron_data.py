@@ -47,3 +47,18 @@ for person in ("SKILLING JEFFREY K", "FASTOW ANDREW S"):
         max_total_payments = enron_data[person]["total_payments"]
 
 print "Person with the highest total payment is: %s which errand: %d" % (max_total_payments_person, max_total_payments)
+
+#27
+number_of_quantified_salaries = sum(1 for value in enron_data.values() if not value["salary"] == "NaN")
+print "Number of quantified salaries = %d" % number_of_quantified_salaries
+
+#28
+number_of_known_email_addresses = sum(1 for value in enron_data.values() if not value["email_address"] == "NaN")
+print "Number of known email addresses= %d" % number_of_known_email_addresses
+
+#29
+number_of_people_with_NaN_total_payments = sum(1 for value in enron_data.values() if value["total_payments"] == "NaN")
+number_of_people = float(len(enron_data.keys()))
+print "Percentage of people with Nan total payments = %f%%" % (number_of_people_with_NaN_total_payments / number_of_people * 100)
+
+
