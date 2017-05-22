@@ -28,3 +28,6 @@ for key in enron_data.keys():
     poi += enron_data[key]["poi"]
 
 print "Number of Persons of interest: %d" % poi
+
+#18
+print "Total value of stock belonging to James Prentice: %d" % enron_data["PRENTICE JAMES"]["total_stock_value"]
