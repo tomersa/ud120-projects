@@ -34,3 +34,6 @@ print "Total value of stock belonging to James Prentice: %d" % enron_data["PRENT
 
 #19
 print "Emails from Wesley Colwell to persons of interesets: %d" % enron_data["COLWELL WESLEY"]["from_this_person_to_poi"]
+
+#20
+print "Number of exercised stock options from Jeffrey K Skilling: %d" % enron_data["SKILLING JEFFREY K"]["exercised_stock_options"]
