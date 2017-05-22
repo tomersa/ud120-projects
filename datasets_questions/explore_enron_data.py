@@ -20,4 +20,11 @@ import pickle
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
 #14
-print len(enron_data.items()[0][1])
+print "Number of features for each person: %d" % len(enron_data.items()[0][1])
+
+#15
+poi = 0
+for key in enron_data.keys():
+    poi += enron_data[key]["poi"]
+
+print "Number of Persons of interest: %d" % poi
