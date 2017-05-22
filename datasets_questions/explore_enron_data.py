@@ -31,3 +31,6 @@ print "Number of Persons of interest: %d" % poi
 
 #18
 print "Total value of stock belonging to James Prentice: %d" % enron_data["PRENTICE JAMES"]["total_stock_value"]
+
+#19
+print "Emails from Wesley Colwell to persons of interesets: %d" % enron_data["COLWELL WESLEY"]["from_this_person_to_poi"]
