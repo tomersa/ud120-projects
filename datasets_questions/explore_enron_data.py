@@ -37,3 +37,13 @@ print "Emails from Wesley Colwell to persons of interesets: %d" % enron_data["CO
 
 #20
 print "Number of exercised stock options from Jeffrey K Skilling: %d" % enron_data["SKILLING JEFFREY K"]["exercised_stock_options"]
+
+#25
+max_total_payments = enron_data["LAY KENNETH L"]["total_payments"]
+max_total_payments_person = "LAY KENNETH L"
+for person in ("SKILLING JEFFREY K", "FASTOW ANDREW S"):
+    if max_total_payments < enron_data[person]["total_payments"]:
+        max_total_payments_person = person
+        max_total_payments = enron_data[person]["total_payments"]
+
+print "Person with the highest total payment is: %s which errand: %d" % (max_total_payments_person, max_total_payments)
