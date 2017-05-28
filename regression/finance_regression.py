@@ -41,8 +41,8 @@ from sklearn.linear_model import LinearRegression
 reg = LinearRegression()
 reg.fit(feature_train, target_train)
 
-reg.score(feature_test, target_test)
-print "reg._coef = %f,\treg.intercept_ = %f" % (reg.coef_, reg.intercept_)
+score = reg.score(feature_test, target_test)
+print "score = %f,\treg._coef = %f,\treg.intercept_ = %f" % (score, reg.coef_, reg.intercept_)
 
 
 
