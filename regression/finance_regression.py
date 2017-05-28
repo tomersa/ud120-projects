@@ -37,7 +37,12 @@ test_color = "r"
 ### Please name it reg, so that the plotting code below picks it up and
 ### plots it correctly. Don't forget to change the test_color above from "b" to
 ### "r" to differentiate training points from test points.
+from sklearn.linear_model import LinearRegression
+reg = LinearRegression()
+reg.fit(feature_train, target_train)
 
+reg.score(feature_test, target_test)
+print "reg._coef = %f,\treg.intercept_ = %f" % (reg.coef_, reg.intercept_)
 
 
 
