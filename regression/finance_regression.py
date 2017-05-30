@@ -69,6 +69,9 @@ try:
     plt.plot( feature_test, reg.predict(feature_test) )
 except NameError:
     pass
+reg.fit(feature_test, target_test)
+plt.plot(feature_train, reg.predict(feature_train), color="b")
+print "score = %f,\treg._coef = %f,\treg.intercept_ = %f" % (score, reg.coef_, reg.intercept_)
 plt.xlabel(features_list[1])
 plt.ylabel(features_list[0])
 plt.legend()
