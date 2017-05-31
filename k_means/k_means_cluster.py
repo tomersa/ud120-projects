@@ -53,18 +53,6 @@ features_list = [poi, feature_1, feature_2]
 data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
-### Getting minimum and maximum salary
-min_salary = 3000000 
-max_salary = data[0][2] 
-for _, salary, _, _ in data:
-	max_salary = max(max_salary, salary)
-
-	if salary > 0:
-		min_salary = min(min_salary, salary)
-
-print "Max salary = %d,\tMin salary = %d" % (max_salary, min_salary)
-
-
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to 
 ### for f1, f2, _ in finance_features:
