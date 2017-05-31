@@ -54,16 +54,16 @@ features_list = [poi, feature_1, feature_2, feature_3]
 data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
-### Getting minimum and maximum exercised_stock_options
-min_eso = 3000000 
-max_eso = data[0][2] 
-for _, _, eso, _ in data:
-	max_eso = max(max_eso, eso)
+### Getting minimum and maximum salary
+min_salary = 3000000 
+max_salary = data[0][2] 
+for _, salary, _, _ in data:
+	max_salary = max(max_salary, salary)
 
-	if eso > 0:
-		min_eso = min(min_eso, eso)
+	if salary > 0:
+		min_salary = min(min_salary, salary)
 
-print "Max exercised_stock_features = %d,\tMin exercised_stock_features = %d" % (max_eso, min_eso)
+print "Max salary = %d,\tMin salary = %d" % (max_salary, min_salary)
 
 
 ### in the "clustering with 3 features" part of the mini-project,
