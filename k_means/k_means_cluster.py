@@ -61,6 +61,11 @@ for f1, f2 in finance_features:
     plt.scatter( f1, f2 )
 plt.show()
 
+### Rescaling finance_features
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+finance_features = scaler.fit_transform(finance_features)
+
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
 from sklearn.cluster import KMeans
