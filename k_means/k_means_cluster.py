@@ -65,6 +65,8 @@ plt.show()
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 finance_features = scaler.fit_transform(finance_features)
+print "salary of 200,000$ would be rescaled to %f$" % (scaler.transform([200000.0, 0.])[0])
+print "exercised_stock_options of 1,000,000$ would be rescaled to %f$" % (scaler.transform([0, 1000000.0])[1])
 
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
