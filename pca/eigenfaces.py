@@ -66,7 +66,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random
 ###############################################################################
 # Compute a PCA (eigenfaces) on the face dataset (treated as unlabeled
 # dataset): unsupervised feature extraction / dimensionality reduction
-n_components = 150
+from sklearn.metrics import f1_score
+import sys
+n_components = int(sys.argv[1]) if len(sys.argv) > 1 else 150
 
 print "Extracting the top %d eigenfaces from %d faces" % (n_components, X_train.shape[0])
 t0 = time()
@@ -143,5 +145,7 @@ plot_gallery(X_test, prediction_titles, h, w)
 
 eigenface_titles = ["eigenface %d" % i for i in range(eigenfaces.shape[0])]
 plot_gallery(eigenfaces, eigenface_titles, h, w)
+
+print f1_score(y_test, y_pred)
 
 pl.show()
