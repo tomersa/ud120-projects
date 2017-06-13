@@ -66,7 +66,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random
 ###############################################################################
 # Compute a PCA (eigenfaces) on the face dataset (treated as unlabeled
 # dataset): unsupervised feature extraction / dimensionality reduction
-n_components = 150
+from sklearn.metrics import f1_score
+import sys
+n_components = int(sys.argv[1]) if len(sys.argv) > 1 else 150
 
 print "Extracting the top %d eigenfaces from %d faces" % (n_components, X_train.shape[0])
 t0 = time()
@@ -81,6 +83,7 @@ X_train_pca = pca.transform(X_train)
 X_test_pca = pca.transform(X_test)
 print "done in %0.3fs" % (time() - t0)
 
+print "explained variance: %s" % pca.explained_variance_ratio_
 
 ###############################################################################
 # Train a SVM classification model
@@ -92,7 +95,7 @@ param_grid = {
           'gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1],
           }
 # for sklearn version 0.16 or prior, the class_weight parameter value is 'auto'
-clf = GridSearchCV(SVC(kernel='rbf', class_weight='balanced'), param_grid)
+clf = GridSearchCV(SVC(kernel='rbf', class_weight='auto'), param_grid)
 clf = clf.fit(X_train_pca, y_train)
 print "done in %0.3fs" % (time() - t0)
 print "Best estimator found by grid search:"
@@ -142,5 +145,7 @@ plot_gallery(X_test, prediction_titles, h, w)
 
 eigenface_titles = ["eigenface %d" % i for i in range(eigenfaces.shape[0])]
 plot_gallery(eigenfaces, eigenface_titles, h, w)
+
+print f1_score(y_test, y_pred)
 
 pl.show()
